@@ -96,6 +96,15 @@ export class Client {
             }
         })
     }
+
+    //TODO
+    /**
+     * NYT (Data from New York Times)
+     * Apple (Mobility data from Apple)
+     * Gov (Government specific data)
+     * JHUCSSE (Data from Johns Hopkins University)
+     * Historical all
+     */
 }
 
 export namespace Options {
