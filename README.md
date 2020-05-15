@@ -1,8 +1,8 @@
-<div align="center">
-<strong> <i>Wrapper of <a href="https://disease.sh">novelCOVID API</a> for Deno.land </i></strong><br><br>
-[![deno documentation](https://img.shields.io/badge/deno-documentation-tomato?style=flat)](https://doc.deno.land/https/deno.land/x/novelcovid_wrapper/mod.ts)
-[![chat](https://img.shields.io/badge/chat-discord-tomato)](https://discord.gg/CCFbnrP)
-</div>
+#### Wrapper of [novelCOVID API](https://disease.sh) for Deno
+
+#### Wrapper of covid-19 API for easy use in deno
+
+[![deno documentation](https://img.shields.io/badge/deno-documentation-tomato?style=flat)](https://doc.deno.land/https/deno.land/x/novelcovid_wrapper/mod.ts)[![chat](https://img.shields.io/badge/chat-discord-tomato)](https://discord.gg/CCFbnrP)
 
 
 
