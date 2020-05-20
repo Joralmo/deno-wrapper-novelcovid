@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "geeknees",
+      "name": "Masumi Kawasaki",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/701242?v=4",
+      "profile": "https://medium.com/@geeknees",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "deno-wrapper-novelcovid",
+  "projectOwner": "Joralmo",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
