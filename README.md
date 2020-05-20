@@ -2,8 +2,8 @@
 
 #### Wrapper of covid-19 API for easy use in deno
 
-[![deno documentation](https://img.shields.io/badge/deno-documentation-tomato?style=flat)](https://doc.deno.land/https/deno.land/x/novelcovid_wrapper/mod.ts)[![chat](https://img.shields.io/badge/chat-discord-tomato)](https://discord.gg/CCFbnrP)
-
+[![deno documentation](https://img.shields.io/badge/deno-documentation-tomato?style=flat)](https://doc.deno.land/https/deno.land/x/novelcovid_wrapper/mod.ts)
+[![chat](https://img.shields.io/badge/chat-discord-tomato)](https://discord.gg/CCFbnrP)
 
 
 ## Usage
@@ -23,7 +23,7 @@ const wrapper = new Wrapper();
 
 wrapper
     .country('co')
-    .then((data) => console.log); // Print data of colombia
+    .then((data) => console.log(data)); // Print data of colombia
 ```
 
 
@@ -36,21 +36,24 @@ wrapper
  * Return and object of type Countries like { data: [Country] }
  */
 wrapper
-    .countries().then((data) => console.log);
+    .countries()
+    .then((data) => console.log(data));
 
 /**
  * Get all affected countries ordered data (order by country, cases, todayCases, deaths, todayDeaths, ...)
  * Return and object of type Countries like { data: [Country] }
  */
 wrapper
-    .countries({ sort: 'country' }).then((data) => console.log);
+    .countries({ sort: 'country' })
+    .then((data) => console.log(data));
 
 /**
  * Get yesterday data of affected countries
  * Return and object of type Countries like { data: [Country] }
  */
 wrapper
-    .countries({ yesterday: true }).then((data) => console.log);
+    .countries({ yesterday: true })
+    .then((data) => console.log(data));
 
 /**
  * Get data of continents
@@ -58,7 +61,8 @@ wrapper
  * the data can be ordered sending { sort: 'continent' }
  */
 wrapper
-    .continents().then((data) => console.log);
+    .continents()
+    .then((data) => console.log(data));
 ```
 
 
@@ -71,16 +75,16 @@ wrapper
  * Return and object of type Countries like { data: [Continent] }
  */
 wrapper
-    .continents().then((data) => console.log(data));
+    .continents()
+    .then((data) => console.log(data));
 
 
 /**
  * Get data of specific continent
  */
 wrapper
-    .continent('North America').then((data) => console.log(data));
-
-
+    .continent('North America')
+    .then((data) => console.log(data));
 ```
 
 ### States
@@ -90,13 +94,15 @@ wrapper
  * Get data of states
  */
 wrapper
-    .states().then((data) => console.log(data));
+    .states()
+    .then((data) => console.log(data));
 
 /**
  * Get data of specific state
  */
 wrapper
-    .state('Northern Mariana Islands').then((data) => console.log(data));
+    .state('Northern Mariana Islands')
+    .then((data) => console.log(data));
 ```
 
 ### Historical
@@ -107,26 +113,26 @@ wrapper
  */
 wrapper
     .historical()
-    .then((d: any) => console.log);
+    .then((d: any) => console.log(d));
 
 /**
  * Get all historical for a country
  */
 wrapper
     .historical({ country: 'USA' })
-    .then((d: any) => console.log);
+    .then((d: any) => console.log(d));
 
 /**
  * Get all historical for a province
  */
 wrapper
     .historical({ country: 'China', province: 'guangdong' })
-    .then((d: any) => console.log);
+    .then((d: any) => console.log(d));
 
 /**
  * Get 5 last days of historical for a province (also works for the country history)
  */
 wrapper
     .historical({ country: 'China', province: 'guangdong', days: 5 })
-    .then((d: any) => console.log);
+    .then((d: any) => console.log(d));
 ```
