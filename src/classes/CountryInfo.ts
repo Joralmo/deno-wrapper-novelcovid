@@ -1,3 +1,4 @@
+import { CountryInfo as CountryInfoMoodel} from '../interfaces/CountryInfo.interface.ts'
 export class CountryInfo {
     public _id: number;
     public iso2: string;
@@ -6,7 +7,7 @@ export class CountryInfo {
     public long: number;
     public flag: string;
     
-    constructor(data: any) {
+    constructor(data: CountryInfoMoodel) {
         this._id = data._id;
         this.iso2 = data.iso2;
         this.iso3 = data.iso3;
