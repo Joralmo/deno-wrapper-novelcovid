@@ -1,3 +1,5 @@
+import { Continent as ContinentModel } from '../interfaces/Continent.interface.ts';
+import { Country as CountryModel } from '../interfaces/Country.interface.ts';
 export class Continent {
     public updated: number;
     public cases: number;
@@ -8,9 +10,9 @@ export class Continent {
     public active: number;
     public critical: number;
     public continent: string;
-    public countries: Array<string>;
+    public countries: Array<CountryModel>;
 
-    constructor(data: any) {
+    constructor(data: ContinentModel) {
         this.updated = data.updated;
         this.cases = data.cases;
         this.todayCases = data.todayCases;
