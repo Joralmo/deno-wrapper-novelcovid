@@ -1,3 +1,4 @@
+import { State as StateModel } from '../interfaces/State.interface.ts'
 export class State {
     public state: string;
     public updated: number;
@@ -9,7 +10,7 @@ export class State {
     public tests: number;
     public testsPerOneMillion: number;
 
-    constructor(data: any) {
+    constructor(data: StateModel) {
         this.state = data.state;
         this.updated = data.updated;
         this.cases = data.cases;
