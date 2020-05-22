@@ -1,17 +1,12 @@
+import { Historical as HistoricalModel, Timeline } from '../interfaces/Historical.interface.ts'
 export class Historical {
     public country: string;
     public province: Array<string> | string;
-    public timeline: timeline;
+    public timeline: Timeline;
 
-    constructor (data: any) {
+    constructor (data: HistoricalModel) {
         this.country = data.country;
         this.province = data.province;
         this.timeline = data.timeline;
     }
-}
-
-interface timeline {
-    cases: Object,
-    deaths: Object,
-    recovered: Object
 }
