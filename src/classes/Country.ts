@@ -1,4 +1,5 @@
 import { CountryInfo } from "../Classes.ts";
+import { Country as CountryModel } from '../interfaces/Country.interface.ts';
 
 export class Country {
     public updated: number;
@@ -17,7 +18,7 @@ export class Country {
     public testsPerOneMillion: number;
     public continent: number;
     
-    constructor(data: any) {
+    constructor(data: CountryModel) {
         this.updated = data.updated;
         this.country = data.country;
         this.countryInfo = new CountryInfo(data.countryInfo);
