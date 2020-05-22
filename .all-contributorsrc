@@ -13,6 +13,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "EndersonPro",
+      "name": "EndersonPro",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/29903127?v=4",
+      "profile": "https://endersonpro.github.io/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
