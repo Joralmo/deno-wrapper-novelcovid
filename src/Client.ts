@@ -1,4 +1,4 @@
-import { Country, Countries, Continent, Continents, State, States, Historical } from "./Classes.ts";
+import { Country, Continent, State, Historical } from "./Classes.ts";
 import { RequestHelper } from "./helpers/RequestHelper.ts";
 import { Endpoints } from "./helpers/Endpoints.ts";
 import { WrapperNovelError } from "./helpers/WrapperNovelError.ts";
