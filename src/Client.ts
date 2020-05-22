@@ -1,6 +1,7 @@
 import { Country, Countries, Continent, Continents, State, States, Historical } from "./Classes.ts";
 import { RequestHelper } from "./helpers/RequestHelper.ts";
 import { Endpoints } from "./helpers/Endpoints.ts";
+import { WrapperNovelError } from "./helpers/WrapperNovelError.ts";
 
 export class Client {
     private requestHelper: RequestHelper;
@@ -8,93 +9,83 @@ export class Client {
         this.requestHelper = new RequestHelper();
     }
 
-    countries(opts?: Options.country): Promise<Countries> {
-        return new Promise((resolve, reject) => {
-            this.requestHelper.request(Endpoints.COUNTRIES(opts))
-                .then((data: any) => {
-                    resolve(new Countries(data));
-                })
-                .catch((err: any) => { reject(err); });
-        })
+    async countries(opts?: Options.country): Promise<Array<Country>> {
+        try {
+            const allCountries = await this.requestHelper.request(Endpoints.COUNTRIES(opts));
+            const result: Array<Country> = allCountries.map((country: Country) => new Country(country));
+            return result;
+        } catch (error) {
+            throw new WrapperNovelError(error);
+        }
     }
 
-    country(country: string): Promise<Country> {
-        return new Promise((resolve, reject) => {
-            this.requestHelper.request(Endpoints.COUNTRY(country))
-                .then((data: any) => {
-                    resolve(new Country(data));
-                })
-                .catch((err: any) => { reject(err); });
-        })
+    async country(country: string): Promise<Country> {
+        try {
+            const _country: Country = await this.requestHelper.request(Endpoints.COUNTRY(country));
+            return _country;
+        } catch (error) {
+            throw new WrapperNovelError(error);
+        }
     }
 
-    continents(opts?: Options.continents): Promise<Continents> {
-        return new Promise((resolve, reject) => {
-            this.requestHelper.request(Endpoints.CONTINENTS(opts))
-                .then((data: any) => {
-                    resolve(new Continents(data));
-                })
-                .catch((err: any) => { reject(err); });
-        })
+    async continents(opts?: Options.continents): Promise<Array<Continent>> {
+        try {
+            const _continents = await this.requestHelper.request(Endpoints.CONTINENTS(opts));
+            const _result: Array<Continent> =  _continents.map((continent: Continent) => new Continent(continent))
+            return _result;
+        } catch (error) {
+            throw new WrapperNovelError(error);
+        }
     }
 
-    continent(continent: string): Promise<Continent> {
-        return new Promise((resolve, reject) => {
-            this.requestHelper.request(Endpoints.CONTINENT(continent))
-                .then((data: any) => {
-                    resolve(new Continent(data));
-                })
-                .catch((err: any) => { reject(err); });
-        })
+    async continent(continent: string): Promise<Continent> {
+        try {
+            const _continent = await this.requestHelper.request(Endpoints.CONTINENT(continent));
+            const _result =  new Continent(_continent);
+            return _result;
+        } catch (error) {
+            throw new WrapperNovelError(error);
+        }
     }
 
-    states(opts?: Options.states): Promise<States> {
-        return new Promise((resolve, reject) => {
-            this.requestHelper.request(Endpoints.STATES(opts))
-                .then((data: any) => {
-                    resolve(new States(data));
-                })
-                .catch((err: any) => { reject(err); });
-        })
+    async states(opts?: Options.states): Promise<Array<State>> {
+        try {
+            const _states = await this.requestHelper.request(Endpoints.STATES(opts));
+            const states: Array<State> = _states.map((state: State) => new State(state));
+            return states;
+        } catch (error) {
+            throw new WrapperNovelError(error);
+        }
     }
 
-    state(state: string): Promise<State> {
-        return new Promise((resolve, reject) => {
-            this.requestHelper.request(Endpoints.STATE(state))
-                .then((data: any) => {
-                    resolve(new State(data));
-                })
-                .catch((err: any) => { reject(err); });
-        })
+    async state(state: string): Promise<State> {
+        try {
+            const _state = await this.requestHelper.request(Endpoints.STATE(state));
+            const _result: State = new State(_state);
+            return _result;
+        } catch (error) {
+            throw new WrapperNovelError(error);
+        }
     }
 
-    historical(opts?: Options.historical): Promise<Historical | Historical[]> {
-        let endpoint: string;
-        return new Promise((resolve, reject) => {
-            if (!opts)
-                this.requestHelper
-                    .request(Endpoints.HISTORICAL())
-                    .then((data: any) => {
-                        const array = new Array<Historical>();
-                        data.forEach((elem: any) => {
-                            array.push(new Historical(elem));
-                        });
-                        resolve(array);
-                    })
-                    .catch((err: any) => reject(err));
-            else if (opts.country) {
-                endpoint = Endpoints.HISTORICAL_COUNTRY(opts.country, opts.days);
-                if (opts.province) {
-                    endpoint = Endpoints.HISTORICAL_PROVINCE(opts.country, opts.province, opts.days);
-                }
-                this.requestHelper
-                    .request(endpoint)
-                    .then((data: any) => {
-                        resolve(new Historical(data));
-                    })
-                    .catch((err: any) => reject(err));
+    async historical(opts?: Options.historical): Promise<Historical | Array<Historical>> {
+        try {
+            if(!opts) {
+                const _historicals = await this.requestHelper.request(Endpoints.HISTORICAL())
+                const _result: Array<Historical> = _historicals.map((h:Historical) => new Historical(h))
+                return _result;
+            } 
+            let endpoint: string;
+            endpoint = Endpoints.HISTORICAL_COUNTRY(opts.country, opts.days);
+            if (opts.province) {
+                endpoint = Endpoints.HISTORICAL_PROVINCE(opts.country, opts.province, opts.days);
             }
-        })
+            const _historical = await this.requestHelper.request(endpoint);
+            const _result: Historical = new Historical(_historical);
+            return _result;
+        } catch (error) {
+            throw new WrapperNovelError(error);
+        }
     }
 
     //TODO
@@ -122,8 +113,8 @@ export namespace Options {
     }
 
     export interface historical {
-        days?: number,
-        country?: string,
+        days: number,
+        country: string,
         province?: string,
     }
 }
