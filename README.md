@@ -1,6 +1,6 @@
 #### Wrapper of [novelCOVID API](https://disease.sh) for Deno
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 #### Wrapper of covid-19 API for easy use in deno
@@ -150,6 +150,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://medium.com/@geeknees"><img src="https://avatars3.githubusercontent.com/u/701242?v=4" width="100px;" alt=""/><br /><sub><b>Masumi Kawasaki</b></sub></a><br /><a href="https://github.com/Joralmo/deno-wrapper-novelcovid/commits?author=geeknees" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://endersonpro.github.io/"><img src="https://avatars0.githubusercontent.com/u/29903127?v=4" width="100px;" alt=""/><br /><sub><b>EndersonPro</b></sub></a><br /><a href="https://github.com/Joralmo/deno-wrapper-novelcovid/commits?author=EndersonPro" title="Code">💻</a></td>
   </tr>
 </table>
 
